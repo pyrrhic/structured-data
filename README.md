@@ -1,14 +1,7 @@
-# clojure-test
+# structured-data
 
-A Clojure library designed to ... well, that part is up to you.
+I'm part of the [120 hour epic sax marathon](http://iloveponies.github.com/120-hour-epic-sax-marathon/).
 
 ## Usage
 
-FIXME
-
-## License
-
-Copyright © 2015 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Make a fork of me!
