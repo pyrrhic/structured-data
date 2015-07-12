@@ -82,7 +82,7 @@
     (or descending ascending)))
 
 (defn stars [n]
-  (apply str (repeat 5 "*")))
+  (apply str (repeat n "*")))
 
 (defn toggle [a-set elem]
   (if (contains? a-set elem)
@@ -111,7 +111,7 @@
   (let [author-name (:name author)
         birth-year (:birth-year author)
         death-year (:death-year author)
-        years (str "(" birth-year " - " death-year ")")]
+        years (str " (" birth-year " - " death-year ")")]
     (if (nil? birth-year) 
       author-name
       (str author-name years))))
@@ -137,18 +137,23 @@
     (str (apply str (interpose ". " no-periods)) ".")))
 
 (defn books-by-author [author books]
-  :-)
+  (filter (fn [x] (has-author? x author)) books))
 
 (defn author-by-name [name authors]
-  :-)
+  (let [a authors
+        author-map (filter (fn [x] (if (= name (:name x)) true false)) a)]
+    (first author-map)))
+  
 
 (defn living-authors [authors]
-  :-)
+  (filter (fn [x] (alive? x)) authors))
 
 (defn has-a-living-author? [book]
-  :-)
+  (let [all-authors (:authors book)]
+    (not (empty? (living-authors all-authors)))))
+    
 
 (defn books-by-living-authors [books]
-  :-)
+  (filter has-a-living-author? books))
 
 ; %________%
